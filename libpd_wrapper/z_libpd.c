@@ -524,7 +524,7 @@ int libpd_noteon(int channel, int pitch, int velocity) {
   CHECK_RANGE_7BIT(pitch)
   CHECK_RANGE_7BIT(velocity)
   sys_lock();
-  inmidi_noteon(PORT, CHANNEL, pitch, velocity);
+  // inmidi_noteon(PORT, CHANNEL, pitch, velocity);
   sys_unlock();
   return 0;
 }
@@ -534,7 +534,7 @@ int libpd_controlchange(int channel, int controller, int value) {
   CHECK_RANGE_7BIT(controller)
   CHECK_RANGE_7BIT(value)
   sys_lock();
-  inmidi_controlchange(PORT, CHANNEL, controller, value);
+  // inmidi_controlchange(PORT, CHANNEL, controller, value);
   sys_unlock();
   return 0;
 }
@@ -543,7 +543,7 @@ int libpd_programchange(int channel, int value) {
   CHECK_CHANNEL
   CHECK_RANGE_7BIT(value)
   sys_lock();
-  inmidi_programchange(PORT, CHANNEL, value);
+  // inmidi_programchange(PORT, CHANNEL, value);
   sys_unlock();
   return 0;
 }
@@ -553,7 +553,7 @@ int libpd_pitchbend(int channel, int value) {
   CHECK_CHANNEL
   if (value < -8192 || value > 8191) return -1;
   sys_lock();
-  inmidi_pitchbend(PORT, CHANNEL, value + 8192);
+  // inmidi_pitchbend(PORT, CHANNEL, value + 8192);
   sys_unlock();
   return 0;
 }
@@ -562,7 +562,7 @@ int libpd_aftertouch(int channel, int value) {
   CHECK_CHANNEL
   CHECK_RANGE_7BIT(value)
   sys_lock();
-  inmidi_aftertouch(PORT, CHANNEL, value);
+  // inmidi_aftertouch(PORT, CHANNEL, value);
   sys_unlock();
   return 0;
 }
@@ -572,7 +572,7 @@ int libpd_polyaftertouch(int channel, int pitch, int value) {
   CHECK_RANGE_7BIT(pitch)
   CHECK_RANGE_7BIT(value)
   sys_lock();
-  inmidi_polyaftertouch(PORT, CHANNEL, pitch, value);
+  // inmidi_polyaftertouch(PORT, CHANNEL, pitch, value);
   sys_unlock();
   return 0;
 }
@@ -581,7 +581,7 @@ int libpd_midibyte(int port, int byte) {
   CHECK_PORT
   CHECK_RANGE_8BIT(byte)
   sys_lock();
-  inmidi_byte(port, byte);
+  // inmidi_byte(port, byte);
   sys_unlock();
   return 0;
 }
@@ -590,7 +590,7 @@ int libpd_sysex(int port, int byte) {
   CHECK_PORT
   CHECK_RANGE_8BIT(byte)
   sys_lock();
-  inmidi_sysex(port, byte);
+  // inmidi_sysex(port, byte);
   sys_unlock();
   return 0;
 }
@@ -599,7 +599,7 @@ int libpd_sysrealtime(int port, int byte) {
   CHECK_PORT
   CHECK_RANGE_8BIT(byte)
   sys_lock();
-  inmidi_realtimein(port, byte);
+  // inmidi_realtimein(port, byte);
   sys_unlock();
   return 0;
 }
